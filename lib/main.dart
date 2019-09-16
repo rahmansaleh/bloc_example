@@ -1,4 +1,4 @@
-import 'package:bloc_example/counter_bloc.dart';
+import 'package:bloc_example/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
