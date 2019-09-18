@@ -1,43 +1,24 @@
 import 'dart:ui';
 
-import 'location.dart';
-import 'name.dart';
-import 'picture.dart';
-
-class User {
-  final String gender;
-  final Name name;
-  final Location location;
-  final String email;
-  final Picture picture;
-
-  User(
-    this.gender,
-    this.name,
-    this.location,
-    this.email,
-    this.picture
-  );
-
-  User.fromJson(Map<String, dynamic> json)
-      : gender = json["gender"],
-        name = Name.fromJson(json["name"]),
-        location = Location.fromJson(json["location"]),
-        email = json["email"],
-        picture = Picture.fromJson(json["picture"]);
-}
+import 'package:bloc_example/model/user.dart';
 
 class UserResponse {
   final List<User> result;
   final String error;
 
-  UserResponse(
+  UserResponse({
     this.result,
     this.error
-  );
+  });
+
+  // factory UserResponse.fromJson(Map<String, dynamic> json) {
+  //   return UserResponse(
+  //     result: (json['results'] as List).map((i) => new User.fromJson(i)).toList(),
+  //   );
+  // }
 
   UserResponse.fromJson(Map<String, dynamic> json):
-  result = (json["result"] as List).map((i) => new User.fromJson(json)).toList(),
+  result = (json['results'] as List).map((data) => new User.fromJson(data)).toList(),
   error = "";
 
   UserResponse.withError(String errorValue):
