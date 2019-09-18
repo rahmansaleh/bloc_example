@@ -1,4 +1,5 @@
 import 'package:bloc_example/bloc/counter_bloc.dart';
+import 'package:bloc_example/user_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: UserWidget(),
     );
   }
 }
